@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { 
     getAuth,
-    signInWithRedirect,
     signInWithPopup,
     GoogleAuthProvider,
     createUserWithEmailAndPassword,
@@ -30,7 +29,7 @@ const firebaseConfig = {
   appId: "1:880142988149:web:823444b409a8287a3a193c"
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({
@@ -60,13 +59,8 @@ export const getCategoriesAndDocuments = async () => {
     const q = query(collectionRef);
 
     const querySnapshot = await getDocs(q);
-    const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-        const { title, items } = docSnapshot.data();
-        acc[title.toLowerCase()] = items;
-        return acc;
-    }, {});
-
-    return categoryMap;
+    
+    return querySnapshot.docs.map(docSnapshot => docSnapshot.data()); 
 }
 
 export const createUserDocumentFromAuth = async(userAuth, additionalInformation = {}) => {
