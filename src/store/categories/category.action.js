@@ -5,8 +5,8 @@ export const setCategories = (categories) =>
   createAction(CATEGORIES_ACTION_TYPES.SET_CATEGORIES, categories);
 
 
-export const fetchCategoriesStart = () => createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START);
+export const fetchCategoriesStart = () => createAction('categories/fetchCategoriesStart');
 
-export const fetchCategoriesSuccess = (categories) => createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_SUCCESS, categories);
+export const fetchCategoriesSuccess = (categories) => createAction('categories/fetchCategoriesSuccess', categories);
 
-export const fetchCategoriesFailed = (error) => createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_FAILED, error);
+export const fetchCategoriesFailed = (error) => createAction('categories/fetchCategoriesFailed', error);
