@@ -1,13 +1,11 @@
 import { useState } from "react";
 
-import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
-
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
 import { SignUpContainer } from './sign-up-form.styles.jsx';
 import { useDispatch } from "react-redux";
-import { signUpStart } from "../../store/user/user.action";
+import { signUpStart } from "../../store/user/user.action.ts";
 
 const defaultFormFields = {
     displayName: '',
